@@ -7,6 +7,15 @@ def main(request):
     return render(request, "mainapp/index.html")
 
 
+def about(request):
+    return render(request, "mainapp/about.html")
+
+
+def book(request, name="Hotel", cost="1000"):
+    content = {"name": name, "cost": cost}
+    return render(request, "mainapp/book.html", content)
+
+
 def accommodations(request):
     title = "accommodation"
     list_of_accommodations = Accommodation.objects.filter(is_active=True)

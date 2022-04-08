@@ -14,9 +14,11 @@
                     <div class="card-body fa fa-align-justify">
                         <h5 class="card-title">{{ offer.name|title }}</h5>
                         <p class="card-text">{{ offer.region|title }}</p>
-                        <p class="card-text">{{ offer.price }} за сутки.</p>
+                        <p class="card-text">{{ offer.price }} rub for day.</p>
                         <a href="{% url 'acc:accommodation' offer.pk %}"
                            class="btn btn-danger">More</a>
+                        <a href="{% url 'book' %}"
+                           class="btn btn-danger">Book</a>
                     </div>
                 </div>
 
