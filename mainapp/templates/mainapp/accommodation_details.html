@@ -16,6 +16,12 @@
                     <br>
                     <p>cost per day: {{ accommodation.price }}</p>
                     <br><br><br><br>
+                <div class="float-right">
+                <button class="btn  btn-danger ">
+                    <a style="color: white; text-decoration: none"
+                       href="{% url 'basket:add' accommodation.pk %}">Book</a>
+                </button>
+                </div>
                 </div>
             </div>
 

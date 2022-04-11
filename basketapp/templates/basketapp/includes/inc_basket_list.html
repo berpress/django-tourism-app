@@ -1,0 +1,30 @@
+{% for reservation in basket_items %}
+    <div class="container">
+        {#        <img src="/media/{{ reservation.accommodation.image }}"#}
+        {#             alt="{{ reservation.accommodation.short_desc }}">#}
+        <div class="row flex-wrap form-group col-lg-sm text">
+            <div>
+                <span class="col-form-label"><b>Country: </b>{{ reservation.accommodation.country.name|title }}</span>
+                <span class=""><b>Accommodation: </b>{{ reservation.accommodation.name|title }}</span>
+                <span class=""><b>Cost per day: </b>{{ reservation.accommodation.price }}&nbspруб</span>
+                <span class=""><b>Number of nights: </b>{{ reservation.nights }}</span>
+
+            </div>
+            <div>
+                <button class="btn btn-danger btn-sm">
+                    <a style="color: white; text-decoration: none" href="{% url 'basket:remove' reservation.pk %}"
+                       class="">
+                        delete
+                    </a>
+                </button>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+{% if basket_items %}
+    <div class="basket_summary text-right">
+        Booked {{ basket_items.0.total_nights }} days, total cost
+        {{ basket_items.0.total_cost }}
+    </div>
+{% endif %}

@@ -11,13 +11,9 @@
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item"><a class="nav-link"
                                     href="{% url 'acc:index' %}">
-                book accommodation</a>
-            </li>
-            <li class="nav-item"><a class="nav-link"
-                                    href="{% url 'about' %}">
-                about travel</a>
-            </li>
-             {% if user.is_authenticated %}
+                book accommodation</a></li>
+            <li class="nav-item dropdown">
+                {% if user.is_authenticated %}
 
                     <a class="nav-link dropdown-toggle"
                        href="" data-toggle="dropdown" aria-haspopup="true"
@@ -27,32 +23,35 @@
 
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'auth:edit' %}">profile</a>
+                        <a class="dropdown-item" href="{% url 'basket:view' %}">basket</a>
+
 
                         {% if user.is_superuser %}
                             <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{% url 'admin:users' %}">admin panel</a>
                         {% endif %}
                     </div>
 
                     <li class="nav-item">
                         <a class="nav-link"
-                           href="{% url 'auth:logout' %}">log out</a>
+                           href="{% url 'auth:logout' %}">sign out</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
                         <a class="nav-link"
-                           href="{% url 'auth:login' %}">log in</a>
+                           href="{% url 'auth:login' %}">sign in</a>
                     </li>
                 {% endif %}
+            </li>
 
 
         </ul>
-
         <form class="form-inline my-2 my-lg-0" >
             <input class="form-control mr-sm-1 " action="{% url 'acc:index' %}"
-                   type="search" placeholder="Поиск на сайте" aria-label="Search"
+                   type="search" placeholder="Site search" aria-label="Search"
             name="search">
             <button class="btn btn-outline-danger my-2 my-sm-0 disabled"
-                    type="submit">Find</button>
+                    type="submit">Search</button>
         </form>
 
     </div>

@@ -22,11 +22,14 @@ import mainapp.views as mainapp
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
+    path("admin/", include("adminapp.urls", namespace="admin")),
     path("", mainapp.main, name="main"),
     path("list_of_accommodations/", include("mainapp.urls", namespace="acc")),
     path("about/", mainapp.about, name="about"),
     path("book/", mainapp.book, name="book"),
     path("auth/", include("authapp.urls", namespace="auth")),
+    path("basket/", include("basketapp.urls", namespace="basket")),
+    path("order/", include("ordersapp.urls", namespace="order")),
 ]
 
 if settings.DEBUG:
