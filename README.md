@@ -34,3 +34,4 @@ Add new superuser
 ```angular2html
 python manage.py createsuperuser
 ```
+URL
