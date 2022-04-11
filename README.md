@@ -1,6 +1,8 @@
 # django-tourism-app
 Django tourism app test project
 
+URL: https://cypress-tourism-app.herokuapp.com
+
 **How to start**
 
 Use python 3.10 +
@@ -34,4 +36,3 @@ Add new superuser
 ```angular2html
 python manage.py createsuperuser
 ```
-URL
